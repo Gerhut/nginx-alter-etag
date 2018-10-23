@@ -1,0 +1,13 @@
+version: '3'
+services:
+  node:
+    build: ./node
+  nginx:
+    build: ./nginx
+    depends_on:
+      - node
+  test:
+    build: ./test
+    depends_on:
+      - node
+      - nginx
